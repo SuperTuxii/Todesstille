@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c23w72cpkmlnw"]
 
-[ext_resource type="FontFile" uid="uid://dhbg8w2tsqico" path="res://assets/fonts/Doto/Doto-VariableFont_ROND,wght.ttf" id="1_tbgi4"]
+[ext_resource type="FontFile" uid="uid://16h0bc6b74oi" path="res://assets/fonts/PixelCode.ttf" id="1_o5qli"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -23,15 +23,10 @@ theme_override_constants/line_separation = 0
 theme_override_constants/paragraph_separation = 0
 theme_override_constants/table_h_separation = 0
 theme_override_constants/table_v_separation = 0
-theme_override_fonts/normal_font = ExtResource("1_tbgi4")
-theme_override_font_sizes/normal_font_size = 64
-theme_override_font_sizes/bold_font_size = 64
-theme_override_font_sizes/bold_italics_font_size = 64
-theme_override_font_sizes/italics_font_size = 64
-theme_override_font_sizes/mono_font_size = 64
+theme_override_fonts/normal_font = ExtResource("1_o5qli")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "abcdefghijklmnopqrstuvwxyz░▒▓█╦┬
-[b]abcdefghijklmnopqrstuvwxyz░▒▓█╦┬[/b]
-[b][i]abcdefghijklmnopqrstuvwxyz░▒▓█╦┬[/i][/b]
-[i]abcdefghijklmnopqrstuvwxyz░▒▓█╦┬[/i]
-[code]abcdefghijklmnopqrstuvwxyz░▒▓█╦┬[/code]"
+text = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~¡¢£¤¥¦§¨ª«¬¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžʰʱʲʳʴʶʷʸˀˁ˂˃˄˅ˆˇˈˉˊˋˌˍˎˏːˑ˔˕˖˗˘˙˚˜˝˟ˡˢˣˤ˥˦˧˨˩˪˫ˬ˭˯˰˱˲˳˴˵˶˷˸˹˺˻˼˽˾ͰͱͲͳ
+ʹ͵Ͷͷͺͻͼͽ;Ϳ΄΅Ά·ΈΉΊΌΎΏΐΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΪΫάέήίΰαβγδεζηθικλμνξοπρςστυφχψωϊϋόύώϏϐϑϒϓϔϕϖϗϘϙϚϛϜϝϞϟϠϡϱϲϳϴϵ϶ϷϸϹϺϻϼϽϾϿЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџאבגדהוזחטיךכלםמןנסעףפץצקרשת׳״ᴬᴭᴮᴰᴱᴲᴳᴴᴵᴶᴷᴸᴹᴺᴻᴼᴽᴾᴿᵀᵁᵂᵃᵅᵇᵈᵉᵍᵎᵏᵐᵑᵒᵖᵗᵘᵛᵝᵢᵣᵤᵥᵦ‐‑‒–—―‖‘’‚‛“”„‟†‡•‣․‥…‧′″‴‵‶‷‸‹›‼‽‾‿⁀⁁⁂⁃⁅⁆⁇⁈⁉⁋⁌⁍⁎⁐⁑⁒⁓⁔⁕⁖⁘⁙⁚⁛⁜⁝⁞⁰ⁱ⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₐₑₒₓₕₖₗₘₙₚₛₜ←↑→↓↕↖↗↘↙↩↪↰↱↲↳↴↵↶↷↸↺↻↼↽↾↿⇀⇁⇂⇃⇠⇡⇢⇣⇦⇧⇨⇩⇪─━│┃┄┅┆┇┊┋┌┍┎┏┐┑┒┓└┕┖┗┘┙┚┛├┝┞┟┠┡┢┣┤┥┦┧┨┩┪┫┬┭┮┯┰┱┲┳┴┵┶┷┸┹┺┻┼┽┾┿╀╁╂╃╄╅╆╇╈╉╊╋╌╍╎╏═║╒╓╔╕╖╗╘╙╚╛╜╝╞╟╠╡╢╣╤╥╦╧╨╩╪╫╬╭╮╯╰╱╲╳╴╵╶╷╸╹╺╻╼╽╾╿▀▁▂▃▄▅▆▇▉▊▋▌▍▎▏▐░▒▓▔▕▖▗▘▙▚▛▜▝▞▟■□▢▣▤▥▦▧▨▩▪▫▬▭▮▯▲△▴▵▶▷▸▹►▻▼▽▾▿◀◁◂◃◄◅◆◇◈◉◊○◌◍◎●◐◑◒◓◔◕◖◗◘◙◚◛◜◝◞◟◠◡◢◣◤◥◦◧◨◩◪◫◭◮◯◰◱◲◳◴◵◶◷◸◹◺
+◻◼◿✅✉✊✋✌✓✔✕✖✗✘✙✚✛✜✡✢✣✤✥✦✧✨✳✴✿❀❇❈❌❎❏❐❑❒❓❔❕❗❘❙❚❛❜❝❞❡❢❣❤❥❦❧❨❩❪❫❬❭❮❯❰❱❲❳❴❵❶❷❸❹❺❻❼❽❾❿➀➁➂➃➄➅➆➇➈➉➊➋➌➍➎➏➐➑➒➓➔➕➖➗➘➙➚➛➜➝➞➟➠➡➢➣➤➥➦➧➨➩➪➫➬➭➮➯➰➱➲➳➴➵➶➷➸➹➺➻➼➽➾➿⟲⟳⟵⟶⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿⡀⡁⡂⡃⡄⡅⡆⡇⡈⡉⡊⡋⡌⡍⡎⡏⡐⡑⡒⡓⡔⡕⡖⡗⡘⡙⡚⡛⡜⡝⡞⡟⡠⡡⡢⡣⡤⡥⡦⡧⡨⡩⡪⡫⡬⡭⡮⡯⡰⡱⡲⡳⡴⡵⡶⡷⡸⡹⡺⡻⡼⡽⡾⡿⢀⢁⢂⢃⢄⢅⢆⢇⢈⢉⢊⢋⢌⢍⢎⢏⢐⢑⢒⢓⢔⢕⢖⢗⢘⢙⢚⢛⢜⢝⢞⢟⢠⢡⢢⢣⢤⢥⢦⢧⢨⢩⢪⢫⢬⢭⢮⢯⢰⢱⢲⢳⢴⢵⢶⢷⢸⢹⢺⢻⢼⢽⢾⢿⣀⣁⣂⣃⣄⣅⣆⣇⣈⣉⣊⣋⣌⣍⣎⣏⣐⣑⣒⣓⣔⣕⣖⣗⣘⣙⣚⣛⣜⣝⣞⣟⣠⣡⣢⣣⣤⣥⣦⣧⣨⣩⣪⣫⣬⣭⣮⣯⣰⣱⣲⣳⣴⣵⣶⣷⣸⣹⣺⣻⣼⣽⣾⣿⤌⤍⤎⤏⤙⤚⤛⤜⤡⤢⤣⤤⤥⤦⤴⤵⤶⤷⤸⤹⤺⤻⤾⤿⥢⥣⥤⥥⥦⥧⥨⥩⥪⥫⥬⥭⥮⥯⥰⬀⬁⬂⬃⬅⬆⬇⬈⬉⬊⬋⬎⬏⬐⬑⬒⬓⬔⬕⬖⬗⬘⬙⬚⬛⬜⬝⬞⬥⬦⬧⬨⭕⭠⭡⭢⭣⭥⭦⭧⭨⭩⭮⭯⮌⮍⮎⮏⮐⮑⮒⮓⮕⮬⮭⮮⮯⮺⮻⮼⯀⯁⯅⯆⯇⯈⯊⯋⯑⯒⯾⯿ⱼⱽꟲꟳꟴꟹ�🬀🬁🬂🬃🬄🬅🬆🬇🬈🬉🬊🬋🬌🬍🬎🬏🬐🬑🬒🬓🬔🬕🬖🬗🬘🬙🬚🬛🬜🬝🬞🬟🬠🬡🬢🬣🬤🬥🬦🬧🬨🬩🬪🬫🬬🬭🬮🬯🬰🬱🬲🬳🬴🬵🬶🬷🬸🬹🬺🬻🬼🬽🬾🬿🭀🭁🭂🭃🭄🭅🭆🭇🭈🭉🭊🭋🭌🭍🭎🭏🭐🭑🭒🭓🭔🭕🭖🭗🭘🭙🭚🭛🭜🭝🭞🭟🭠🭡🭢🭣🭤🭥🭦🭧🭨🭩🭪🭫🭬🭭🭮🭯🮌🮍🮎🮏🮐🮑🮒🮔🮕🮖🮗🮘🮙🮚🮛🮜🮝🮞🮟🮠🮡🮢🮣🮤🮥🮦🮧🮨🮩🮪🮫🮬🮭🮮🮯🮰🮱🮲🮳🮴🮵🮶🮷🮸🮹🮺🮻🮼🮽🮾🮿🯀🯁🯂🯃🯄🯅🯆🯇🯈🯉🯊🯰🯱🯲🯳🯴🯵🯶🯷🯸🯹"
+autowrap_mode = 1
