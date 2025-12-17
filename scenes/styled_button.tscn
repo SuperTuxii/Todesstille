@@ -17,6 +17,7 @@
 
 [node name="StyledButton" type="NinePatchRect"]
 material = ExtResource("1_clwuy")
+custom_minimum_size = Vector2(15, 10)
 offset_right = 6.0
 offset_bottom = 6.0
 texture = ExtResource("2_4vsgu")

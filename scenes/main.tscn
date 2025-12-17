@@ -1,7 +1,6 @@
-[gd_scene load_steps=73 format=3 uid="uid://c23w72cpkmlnw"]
+[gd_scene load_steps=67 format=3 uid="uid://c23w72cpkmlnw"]
 
 [ext_resource type="Texture2D" uid="uid://b0g75qxacmj2f" path="res://assets/textures/title_screen_background.png" id="1_o6xl0"]
-[ext_resource type="FontFile" uid="uid://csr80w2utqplr" path="res://assets/fonts/PixelCode2.ttf" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://cnlmca4bml2y" path="res://scripts/main.gd" id="1_tipki"]
 [ext_resource type="Texture2D" uid="uid://b4hbgc718wck3" path="res://assets/textures/title.png" id="3_xhfw6"]
 [ext_resource type="PackedScene" uid="uid://b474h2ftyfj5u" path="res://scenes/styled_button.tscn" id="4_1epgm"]
@@ -66,16 +65,6 @@
 [ext_resource type="Texture2D" uid="uid://4utj0i1b1hx7" path="res://assets/textures/start_animation/frame0058.png" id="66_esrwe"]
 [ext_resource type="Texture2D" uid="uid://bp3cnh710ohpu" path="res://assets/textures/start_animation/frame0059.png" id="67_4b36k"]
 [ext_resource type="Texture2D" uid="uid://b8o7f5l2h0h8s" path="res://assets/textures/start_animation/frame0060.png" id="68_1v8b0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xhfw6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o6xl0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tipki"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85g3d"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_choun"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t5ykj"]
 animations = [{
@@ -308,9 +297,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_xhfw6")
 
-[node name="OptionsButton" parent="TitleScreen" instance=ExtResource("4_1epgm")]
-layout_mode = 0
-
 [node name="Buttons" type="VBoxContainer" parent="TitleScreen"]
 layout_mode = 1
 anchors_preset = -1
@@ -319,28 +305,29 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
-scale = Vector2(0.5, 0.5)
 alignment = 1
 
-[node name="StartButton" type="Button" parent="TitleScreen/Buttons"]
+[node name="StartButton" parent="TitleScreen/Buttons" instance=ExtResource("4_1epgm")]
+custom_minimum_size = Vector2(60, 22)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0.5019608, 0.7607843, 0.1882353, 1)
-theme_override_colors/font_focus_color = Color(0.5019608, 0.7607843, 0.1882353, 1)
-theme_override_colors/font_pressed_color = Color(0.36780003, 0.6, 0.08399999, 1)
-theme_override_colors/font_hover_color = Color(0.58673185, 0.78125, 0.35095215, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.36862746, 0.6, 0.08235294, 1)
-theme_override_fonts/font = ExtResource("1_tefeu")
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxEmpty_xhfw6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_o6xl0")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_tipki")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_85g3d")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_choun")
-text = "╭─────────╮
-│  START  │
-╰─────────╯"
+text = "START"
+minimum_size = Vector2(60, 0)
+color = Color(0.5019608, 0.7607843, 0.1882353, 1)
+hover_color = Color(0.5882353, 0.78039217, 0.34901962, 1)
+pressed_color = Color(0.36862746, 0.6, 0.08235294, 1)
+
+[node name="OptionsButton" parent="TitleScreen/Buttons" instance=ExtResource("4_1epgm")]
+custom_minimum_size = Vector2(60, 22)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "OPTIONS"
+minimum_size = Vector2(60, 0)
+color = Color(0.5019608, 0.7607843, 0.1882353, 1)
+hover_color = Color(0.5882353, 0.78039217, 0.34901962, 1)
+pressed_color = Color(0.36862746, 0.6, 0.08235294, 1)
 
 [node name="StartAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
