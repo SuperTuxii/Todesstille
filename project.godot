@@ -21,6 +21,11 @@ window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/ogv/encoding_speed=3
+movie_writer/movie_file="/home/tobias/Downloads/video.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
