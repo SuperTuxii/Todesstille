@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://b474h2ftyfj5u"]
+
+[ext_resource type="Material" uid="uid://c7tvx00y2tvrn" path="res://materials/recolor_material.tres" id="1_clwuy"]
+[ext_resource type="Texture2D" uid="uid://dm6lrxqh87w5q" path="res://assets/textures/box_outline.png" id="2_4vsgu"]
+[ext_resource type="Script" uid="uid://dcu4syck0j1q" path="res://scripts/styled_button.gd" id="3_4vsgu"]
+[ext_resource type="FontFile" uid="uid://csr80w2utqplr" path="res://assets/fonts/PixelCode2.ttf" id="3_noaac"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tefeu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o6xl0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tipki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85g3d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_choun"]
+
+[node name="StyledButton" type="NinePatchRect"]
+material = ExtResource("1_clwuy")
+custom_minimum_size = Vector2(15, 10)
+offset_right = 6.0
+offset_bottom = 6.0
+texture = ExtResource("2_4vsgu")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource("3_4vsgu")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.5019608, 0.7607843, 0.1882353, 1)
+theme_override_colors/font_focus_color = Color(0.5019608, 0.7607843, 0.1882353, 1)
+theme_override_colors/font_pressed_color = Color(0.36862746, 0.6, 0.08235294, 1)
+theme_override_colors/font_hover_color = Color(0.5882353, 0.78039217, 0.34901962, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.36862746, 0.6, 0.08235294, 1)
+theme_override_fonts/font = ExtResource("3_noaac")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tefeu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tipki")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_85g3d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_choun")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="minimum_size_changed" from="Button" to="." method="_on_button_minimum_size_changed"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]
