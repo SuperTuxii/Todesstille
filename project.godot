@@ -21,11 +21,12 @@ window/size/viewport_width=320
 window/size/viewport_height=180
 window/size/mode=2
 window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [editor]
 
 movie_writer/ogv/encoding_speed=3
-movie_writer/movie_file="/home/tobias/Downloads/video.avi"
+movie_writer/movie_file="/home/supertuxi/Downloads/video.avi"
 
 [editor_plugins]
 
