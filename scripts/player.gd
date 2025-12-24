@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+signal moved(difference: Vector2)
+
 @onready
 var texture: AnimatedSprite2D = $Texture
 
@@ -34,6 +36,8 @@ func _physics_process(delta: float) -> void:
 	var prev_postion: Vector2 = position
 	move_and_slide()
 	
+	if position != prev_postion:
+		moved.emit(position - prev_postion)
 	if has_node("Clouds"):
 		var scroll_offset: Vector2 = $Clouds.material.get_shader_parameter("offset")
 		$Clouds.material.set_shader_parameter("offset", scroll_offset + (position - prev_postion) * 0.25 - Vector2(0.1, 0))

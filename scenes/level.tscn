@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://rkjoshbmpcn3"]
+[gd_scene load_steps=13 format=4 uid="uid://rkjoshbmpcn3"]
 
 [ext_resource type="Texture2D" uid="uid://bhl442455xw8u" path="res://assets/textures/tilesheet.png" id="1_8c41q"]
 [ext_resource type="Script" uid="uid://ctk5bivfst7c1" path="res://scripts/level.gd" id="1_w8frs"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cu821yq3ybux0" path="res://assets/textures/hill3.png" id="4_8c41q"]
 [ext_resource type="Material" uid="uid://0hetog7pcjj4" path="res://materials/burn_material.tres" id="7_b121j"]
 [ext_resource type="Texture2D" uid="uid://dchcr5r0nm4qk" path="res://assets/textures/clouds.png" id="7_klq6b"]
+[ext_resource type="Script" uid="uid://crqoyb7bfuit2" path="res://scripts/moving_node.gd" id="10_olg7q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olg7q"]
 resource_name = "terrain_surfice"
@@ -405,14 +406,17 @@ texture_repeat = 1
 script = ExtResource("1_w8frs")
 
 [node name="Hill1" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(99, 82)
 texture = ExtResource("2_2r41h")
 
 [node name="Hill2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(451, 80)
 texture = ExtResource("3_klq6b")
 
 [node name="Hill3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(660, 19)
 texture = ExtResource("4_8c41q")
 
@@ -437,3 +441,6 @@ texture_repeat = 2
 material = ExtResource("7_b121j")
 position = Vector2(61, 8)
 texture = ExtResource("7_klq6b")
+
+[node name="MovingNode" type="Node2D" parent="."]
+script = ExtResource("10_olg7q")
