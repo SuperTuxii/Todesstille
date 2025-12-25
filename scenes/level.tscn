@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://rkjoshbmpcn3"]
+[gd_scene load_steps=15 format=4 uid="uid://rkjoshbmpcn3"]
 
 [ext_resource type="Texture2D" uid="uid://bhl442455xw8u" path="res://assets/textures/tilesheet.png" id="1_8c41q"]
 [ext_resource type="Script" uid="uid://ctk5bivfst7c1" path="res://scripts/level.gd" id="1_w8frs"]
@@ -400,6 +400,12 @@ terrain_set_0/terrain_0/name = "Wasteland"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_olg7q")
 
+[sub_resource type="Gradient" id="Gradient_olg7q"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t1rx8"]
+gradient = SubResource("Gradient_olg7q")
+
 [node name="Level" type="Node2D"]
 texture_filter = 1
 texture_repeat = 1
@@ -442,3 +448,8 @@ texture_repeat = 2
 material = ExtResource("7_b121j")
 position = Vector2(61, 8)
 texture = ExtResource("7_klq6b")
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(11, 23.000008)
+scale = Vector2(5.78125, 3.2812502)
+texture = SubResource("GradientTexture2D_t1rx8")
