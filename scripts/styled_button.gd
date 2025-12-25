@@ -43,18 +43,18 @@ var minimum_size: Vector2:
 		_on_button_minimum_size_changed()
 @export_group("Colors")
 @export
-var color: Color = Color.GRAY:
+var color: Color = Color("80c230"):
 	set(value):
 		$Button.add_theme_color_override("font_color", value)
 		$Button.add_theme_color_override("font_focus_color", value)
 		color = value
 @export
-var hover_color: Color = Color.WHITE:
+var hover_color: Color = Color("96c759"):
 	set(value):
 		$Button.add_theme_color_override("font_hover_color", value)
 		hover_color = value
 @export
-var pressed_color: Color = Color.DIM_GRAY:
+var pressed_color: Color = Color("5e9915"):
 	set(value):
 		$Button.add_theme_color_override("font_pressed_color", value)
 		$Button.add_theme_color_override("font_hover_pressed_color", value)

@@ -347,9 +347,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "START"
 minimum_size = Vector2(60, 0)
-color = Color(0.5019608, 0.7607843, 0.1882353, 1)
-hover_color = Color(0.5882353, 0.78039217, 0.34901962, 1)
-pressed_color = Color(0.36862746, 0.6, 0.08235294, 1)
 
 [node name="OptionsButton" parent="TitleScreen/Buttons" instance=ExtResource("4_1epgm")]
 material = SubResource("ShaderMaterial_1epgm")
@@ -359,9 +356,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "OPTIONS"
 minimum_size = Vector2(60, 0)
-color = Color(0.5019608, 0.7607843, 0.1882353, 1)
-hover_color = Color(0.5882353, 0.78039217, 0.34901962, 1)
-pressed_color = Color(0.36862746, 0.6, 0.08235294, 1)
 
 [node name="StartAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -386,9 +380,6 @@ anchor_bottom = 0.925
 grow_vertical = 0
 text = "SKIP"
 margin = Vector2(4, 1)
-color = Color(0.5019608, 0.7607843, 0.1882353, 1)
-hover_color = Color(0.5882353, 0.78039217, 0.34901962, 1)
-pressed_color = Color(0.36862746, 0.6, 0.08235294, 1)
 
 [connection signal="pressed" from="TitleScreen/Buttons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="animation_finished" from="StartAnimation" to="." method="_on_start_animation_animation_finished"]

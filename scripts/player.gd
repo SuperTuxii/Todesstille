@@ -38,9 +38,6 @@ func _physics_process(delta: float) -> void:
 	
 	if position != prev_postion:
 		moved.emit(position - prev_postion)
-	if has_node("Clouds"):
-		var scroll_offset: Vector2 = $Clouds.material.get_shader_parameter("offset")
-		$Clouds.material.set_shader_parameter("offset", scroll_offset + (position - prev_postion) * 0.25 - Vector2(0.1, 0))
 
 func _on_texture_animation_finished() -> void:
 	if texture.animation == "standup":
