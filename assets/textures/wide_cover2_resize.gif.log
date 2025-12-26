@@ -1,21 +1,0 @@
-/usr/bin/ffmpeg -hide_banner -y -y -r 6 -start_number 0 -start_number_range 1 -i /home/supertuxi/Documents/GodotProjects/Todesstille/assets/textures/frame%04d.png -i /home/supertuxi/Documents/GodotProjects/Todesstille/assets/textures/KritaTempPalettegen_%06d.png -lavfi scale=w=960:h=411:flags=neighbor[0:v];[0:v][1:v]paletteuse=dither=sierra2_4a:diff_mode=none -f gif -loop 0 -gifflags +transdiff /home/supertuxi/Documents/GodotProjects/Todesstille/assets/textures/wide_cover2_resize.gif
-=====================================================
-Input #0, image2, from '/home/supertuxi/Documents/GodotProjects/Todesstille/assets/textures/frame%04d.png':
-  Duration: 00:00:25.64, start: 0.000000, bitrate: N/A
-  Stream #0:0: Video: png, rgba(pc, gbr/unknown/unknown), 315x135 [SAR 11811:11811 DAR 7:3], 25 fps, 25 tbr, 25 tbn
-Input #1, image2, from '/home/supertuxi/Documents/GodotProjects/Todesstille/assets/textures/KritaTempPalettegen_%06d.png':
-  Duration: 00:00:00.04, start: 0.000000, bitrate: N/A
-  Stream #1:0: Video: png, rgba(pc, gbr/unknown/unknown), 16x16 [SAR 1:1 DAR 1:1], 25 fps, 25 tbr, 25 tbn
-Stream mapping:
-  Stream #0:0 (png) -> scale:default
-  Stream #1:0 (png) -> paletteuse
-  paletteuse:default -> Stream #0:0 (gif)
-Press [q] to stop, [?] for help
-Output #0, gif, to '/home/supertuxi/Documents/GodotProjects/Todesstille/assets/textures/wide_cover2_resize.gif':
-  Metadata:
-    encoder         : Lavf61.7.100
-  Stream #0:0: Video: gif, pal8(pc, gbr/unknown/unknown, progressive), 960x411 [SAR 959:960 DAR 7:3], q=2-31, 200 kb/s, 6 fps, 100 tbn
-      Metadata:
-        encoder         : Lavc61.19.101 gif
-frame=  102 fps=0.0 q=-0.0 size=     768KiB time=00:00:17.00 bitrate= 370.1kbits/s speed=  34x    frame=  205 fps=205 q=-0.0 size=    1792KiB time=00:00:34.16 bitrate= 429.7kbits/s speed=34.2x    frame=  308 fps=205 q=-0.0 size=    2816KiB time=00:00:51.33 bitrate= 449.4kbits/s speed=34.2x    frame=  409 fps=204 q=-0.0 size=    4096KiB time=00:01:08.16 bitrate= 492.2kbits/s speed=34.1x    frame=  512 fps=205 q=-0.0 size=    5120KiB time=00:01:25.33 bitrate= 491.5kbits/s speed=34.1x    frame=  613 fps=204 q=-0.0 size=    6144KiB time=00:01:42.16 bitrate= 492.6kbits/s speed=  34x    [out#0/gif @ 0x5fb9389240c0] video:6558KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.000298%
-frame=  641 fps=204 q=-0.0 Lsize=    6558KiB time=00:01:46.83 bitrate= 502.9kbits/s speed=  34x    
