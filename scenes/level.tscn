@@ -1440,7 +1440,7 @@ void fragment() {
 	COLOR *= color;
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_64w2a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8iemx"]
 shader = SubResource("Shader_1epgm")
 shader_parameter/color = Color(0.5019608, 0.7607843, 0.1882353, 1)
 
@@ -1448,10 +1448,6 @@ shader_parameter/color = Color(0.5019608, 0.7607843, 0.1882353, 1)
 texture_filter = 1
 texture_repeat = 1
 script = ExtResource("1_w8frs")
-
-[node name="MovingNode3" type="Node2D" parent="."]
-script = ExtResource("10_olg7q")
-metadata/_custom_type_script = "uid://crqoyb7bfuit2"
 
 [node name="MovingNode2" type="Node2D" parent="."]
 script = ExtResource("10_olg7q")
@@ -1530,7 +1526,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RetryButton" parent="Player/DeathOverlay" instance=ExtResource("5_8iemx")]
-material = SubResource("ShaderMaterial_64w2a")
+material = SubResource("ShaderMaterial_8iemx")
 custom_minimum_size = Vector2(45, 22)
 layout_mode = 1
 anchors_preset = -1
