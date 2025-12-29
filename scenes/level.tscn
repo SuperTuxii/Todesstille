@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://rkjoshbmpcn3"]
+[gd_scene load_steps=24 format=4 uid="uid://rkjoshbmpcn3"]
 
 [ext_resource type="Script" uid="uid://ctk5bivfst7c1" path="res://scripts/level.gd" id="1_w8frs"]
 [ext_resource type="Texture2D" uid="uid://6i0h6x8bnfvn" path="res://assets/textures/hill1.png" id="2_2r41h"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dchcr5r0nm4qk" path="res://assets/textures/clouds.png" id="7_klq6b"]
 [ext_resource type="Texture2D" uid="uid://dq0b8tss3hl3g" path="res://assets/textures/tilesheet_combined.png" id="10_fpun6"]
 [ext_resource type="Script" uid="uid://crqoyb7bfuit2" path="res://scripts/moving_node.gd" id="10_olg7q"]
+[ext_resource type="PackedScene" uid="uid://c1t21qbixborm" path="res://scenes/item.tscn" id="13_fpun6"]
+[ext_resource type="Texture2D" uid="uid://ccu0kgc8ij3ot" path="res://assets/textures/seed.png" id="14_wc255"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wc255"]
 texture = ExtResource("10_fpun6")
@@ -1440,9 +1442,11 @@ void fragment() {
 	COLOR *= color;
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8iemx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fpun6"]
 shader = SubResource("Shader_1epgm")
 shader_parameter/color = Color(0.5019608, 0.7607843, 0.1882353, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wc255"]
 
 [node name="Level" type="Node2D"]
 texture_filter = 1
@@ -1526,7 +1530,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RetryButton" parent="Player/DeathOverlay" instance=ExtResource("5_8iemx")]
-material = SubResource("ShaderMaterial_8iemx")
+material = SubResource("ShaderMaterial_fpun6")
 custom_minimum_size = Vector2(45, 22)
 layout_mode = 1
 anchors_preset = -1
@@ -1541,6 +1545,31 @@ offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Retry"
+
+[node name="InventoryOverlay" type="Node2D" parent="Player"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/InventoryOverlay"]
+position = Vector2(-141, -71)
+texture = ExtResource("14_wc255")
+
+[node name="Label" type="Label" parent="Player/InventoryOverlay"]
+offset_left = -131.0
+offset_top = -79.0
+offset_right = -99.0
+offset_bottom = -63.0
+theme_override_fonts/font = ExtResource("4_t1rx8")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wc255")
+text = "0"
+vertical_alignment = 1
+
+[node name="Item" parent="." instance=ExtResource("13_fpun6")]
+position = Vector2(214, 88)
+item_id = &"Seed"
+texture = ExtResource("14_wc255")
+levitation_height = 83.0
+levitation_speed = 1.0
+levitation_range = 8.0
 
 [connection signal="body_entered" from="MovingNode/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="MovingNode/Area2D" to="." method="_on_area_2d_body_exited"]

@@ -8,9 +8,15 @@ var texture: AnimatedSprite2D = $Texture
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 
+var inventory: Dictionary = {}
 
 func standup() -> void:
 	texture.play("standup")
+
+func add_item(item_id: StringName):
+	inventory[item_id] = inventory.get(item_id, 0) + 1
+	if has_node("InventoryOverlay/Label") and item_id == "Seed":
+		$InventoryOverlay/Label.text = str(inventory[item_id])
 
 func _physics_process(delta: float) -> void:
 	if not is_zero_approx(velocity.x):
