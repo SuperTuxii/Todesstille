@@ -9,14 +9,26 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 
 var inventory: Dictionary = {}
+var speed_amplifier: float = 1.0:
+	set(value):
+		texture.speed_scale = value
+		speed_amplifier = value
+var jump_amplifier: float = 1.0
 
 func standup() -> void:
 	texture.play("standup")
 
-func add_item(item_id: StringName):
-	inventory[item_id] = inventory.get(item_id, 0) + 1
-	if has_node("InventoryOverlay/Label") and item_id == "Seed":
-		$InventoryOverlay/Label.text = str(inventory[item_id])
+func add_item(item_id: StringName, amount: int = 1):
+	inventory[item_id] = inventory.get(item_id, 0) + amount
+	if has_node("SeedCount") and item_id == "Seed":
+		$SeedCount.text = str(inventory[item_id])
+		if inventory[item_id] > 0:
+			$UpgradeOverlay/HBoxContainer/StyledButton.show()
+
+func remove_item(item_id: StringName, amount: int = 1):
+	inventory[item_id] = inventory.get(item_id, 0) - amount
+	if has_node("SeedCount") and item_id == "Seed":
+		$SeedCount.text = str(inventory[item_id])
 
 func _physics_process(delta: float) -> void:
 	if not is_zero_approx(velocity.x):
@@ -31,14 +43,14 @@ func _physics_process(delta: float) -> void:
 	if texture.animation != "standup":
 		# Handle jump.
 		if Input.is_action_just_pressed("up") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
+			velocity.y = JUMP_VELOCITY * jump_amplifier
 
 		# Get the input direction and handle the movement/deceleration.
 		var direction := Input.get_axis("left", "right")
 		if direction:
-			velocity.x = direction * SPEED
+			velocity.x = direction * SPEED * speed_amplifier
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED * speed_amplifier)
 	var prev_postion: Vector2 = position
 	move_and_slide()
 	

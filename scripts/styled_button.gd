@@ -47,6 +47,7 @@ var color: Color = Color("80c230"):
 	set(value):
 		$Button.add_theme_color_override("font_color", value)
 		$Button.add_theme_color_override("font_focus_color", value)
+		set_color(value)
 		color = value
 @export
 var hover_color: Color = Color("96c759"):

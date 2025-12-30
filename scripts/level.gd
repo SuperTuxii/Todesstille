@@ -18,6 +18,9 @@ func _process(delta: float) -> void:
 		point_light.energy = 0.0
 		$Player/DeathOverlay.show()
 		get_tree().paused = true
+	
+	if Input.is_action_just_pressed("upgrade_menu"):
+		$Player/UpgradeOverlay.visible = !$Player/UpgradeOverlay.visible
 
 var player_safe: bool = false
 
@@ -32,3 +35,11 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_retry_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
+
+func _on_seed_count_pressed() -> void:
+	$Player/UpgradeOverlay.visible = !$Player/UpgradeOverlay.visible
+
+func _on_styled_button_pressed() -> void:
+	$Player/UpgradeOverlay/HBoxContainer/StyledButton.hide()
+	$Player.remove_item("Seed")
+	$Player.speed_amplifier *= 1.15

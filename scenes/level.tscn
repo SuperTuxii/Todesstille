@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://rkjoshbmpcn3"]
+[gd_scene load_steps=31 format=4 uid="uid://rkjoshbmpcn3"]
 
 [ext_resource type="Script" uid="uid://ctk5bivfst7c1" path="res://scripts/level.gd" id="1_w8frs"]
 [ext_resource type="Texture2D" uid="uid://6i0h6x8bnfvn" path="res://assets/textures/hill1.png" id="2_2r41h"]
@@ -1446,7 +1446,32 @@ void fragment() {
 shader = SubResource("Shader_1epgm")
 shader_parameter/color = Color(0.5019608, 0.7607843, 0.1882353, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpun6"]
+bg_color = Color(0.3333333, 0.5, 0.25, 0.49803922)
+
+[sub_resource type="Shader" id="Shader_fpun6"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform vec4 color : source_color = vec4(1.0);
+
+void fragment() {
+	COLOR *= color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wc255"]
+shader = SubResource("Shader_fpun6")
+shader_parameter/color = Color(0.066250004, 0.1, 0.025, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wc255"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_arp2o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ux5qa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_82cfe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gunhw"]
 
 [node name="Level" type="Node2D"]
 texture_filter = 1
@@ -1546,22 +1571,57 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Retry"
 
-[node name="InventoryOverlay" type="Node2D" parent="Player"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/InventoryOverlay"]
-position = Vector2(-141, -71)
-texture = ExtResource("14_wc255")
-
-[node name="Label" type="Label" parent="Player/InventoryOverlay"]
-offset_left = -131.0
-offset_top = -79.0
-offset_right = -99.0
-offset_bottom = -63.0
+[node name="UpgradeOverlay" type="Label" parent="Player"]
+visible = false
+offset_left = -152.0
+offset_top = -82.0
+offset_right = 168.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0.57236665, 0.77, 0.17710002, 1)
 theme_override_fonts/font = ExtResource("4_t1rx8")
 theme_override_font_sizes/font_size = 9
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wc255")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fpun6")
+text = "
+Upgrade Menu"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/UpgradeOverlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.75
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="StyledButton" parent="Player/UpgradeOverlay/HBoxContainer" instance=ExtResource("5_8iemx")]
+visible = false
+material = SubResource("ShaderMaterial_wc255")
+custom_minimum_size = Vector2(93, 46)
+layout_mode = 2
+text = "Speed Upgrade
+
++ 15% Speed"
+color = Color(0.066250004, 0.1, 0.025, 1)
+hover_color = Color(0.15050001, 0.2, 0.089999996, 1)
+pressed_color = Color(0.030650003, 0.05, 0.0069999993, 1)
+
+[node name="SeedCount" type="Button" parent="Player"]
+offset_left = -149.0
+offset_top = -79.0
+offset_right = -115.0
+offset_bottom = -59.0
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wc255")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_arp2o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ux5qa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_82cfe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gunhw")
 text = "0"
-vertical_alignment = 1
+icon = ExtResource("14_wc255")
+alignment = 0
 
 [node name="Item" parent="." instance=ExtResource("13_fpun6")]
 position = Vector2(214, 88)
@@ -1574,3 +1634,5 @@ levitation_range = 8.0
 [connection signal="body_entered" from="MovingNode/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="MovingNode/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="Player/DeathOverlay/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Player/UpgradeOverlay/HBoxContainer/StyledButton" to="." method="_on_styled_button_pressed"]
+[connection signal="pressed" from="Player/SeedCount" to="." method="_on_seed_count_pressed"]
