@@ -1,22 +1,55 @@
-[gd_scene load_steps=11 format=3 uid="uid://bawsc4xmp0vd8"]
+[gd_scene load_steps=18 format=3 uid="uid://bawsc4xmp0vd8"]
 
 [ext_resource type="Texture2D" uid="uid://bd6wvnxccjoep" path="res://assets/textures/player/standup0000.png" id="1_smehm"]
 [ext_resource type="Script" uid="uid://clvkmrxecum6o" path="res://scripts/player.gd" id="1_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://neq7t0v8y82r" path="res://assets/textures/player/idle0000.png" id="2_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://bl318dnbk7rjh" path="res://assets/textures/player/standup0001.png" id="2_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://bwgmsfht3t5hy" path="res://assets/textures/player/idle0001.png" id="3_qfm1y"]
 [ext_resource type="Texture2D" uid="uid://c82ic7sle52ij" path="res://assets/textures/player/standup0002.png" id="3_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bj7o446etbbt1" path="res://assets/textures/player/standup0003.png" id="4_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://ccelm3wrqfaej" path="res://assets/textures/player/idle0002.png" id="4_fulsm"]
 [ext_resource type="Texture2D" uid="uid://cq8qjogn7gw36" path="res://assets/textures/player/walk0000.png" id="5_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://cmyfrxj6w0ip5" path="res://assets/textures/player/idle0003.png" id="5_4r5pv"]
+[ext_resource type="Texture2D" uid="uid://brkt2y1al6wq3" path="res://assets/textures/player/idle0004.png" id="6_60mlk"]
 [ext_resource type="Texture2D" uid="uid://c206cjpf8ud5n" path="res://assets/textures/player/walk0001.png" id="6_jej6c"]
 [ext_resource type="Texture2D" uid="uid://b47eh1dk3q7r2" path="res://assets/textures/player/walk0002.png" id="7_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://d4glfnnixjvni" path="res://assets/textures/player/idle0005.png" id="7_i4ail"]
+[ext_resource type="Texture2D" uid="uid://dj6rfrmvhyxw" path="res://assets/textures/player/idle0006.png" id="8_a38lo"]
 [ext_resource type="Texture2D" uid="uid://dl02x7baana78" path="res://assets/textures/player/walk0003.png" id="8_oprun"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2q6dc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_3v2ag")
+"texture": ExtResource("1_smehm")
 }],
 "loop": true,
+"name": &"burried",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 25.0,
+"texture": ExtResource("2_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qfm1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fulsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4r5pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_60mlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i4ail")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_a38lo")
+}],
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -66,7 +99,13 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, -3, 6, 8, -5, 8, -8, -1)
 [node name="Texture" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_2q6dc")
-animation = &"standup"
+animation = &"burried"
 autoplay = "idle"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="animation_changed" from="Texture" to="." method="_on_texture_animation_changed"]
 [connection signal="animation_finished" from="Texture" to="." method="_on_texture_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
