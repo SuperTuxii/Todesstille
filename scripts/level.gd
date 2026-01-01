@@ -3,7 +3,7 @@ class_name Level extends Node2D
 @onready
 var player: Player = $Player
 @onready
-var point_light: PointLight2D = $Player/PointLight2D
+var light: Light2D = $Player/Light
 
 func _ready() -> void:
 	for child in get_children():
@@ -12,15 +12,12 @@ func _ready() -> void:
 	player.standup()
 
 func _process(delta: float) -> void:
-	point_light.energy += (-1.5 if player_safe else 0.75) * delta
-	point_light.energy = clamp(point_light.energy, 0.0, 2.5)
-	if point_light.energy >= 2.49:
-		point_light.energy = 0.0
+	light.energy += (-1.5 if player_safe else 0.75) * delta
+	light.energy = clamp(light.energy, 0.0, 2.5)
+	if light.energy >= 2.49:
+		light.energy = 0.0
 		$Player/DeathOverlay.show()
 		get_tree().paused = true
-	
-	if Input.is_action_just_pressed("upgrade_menu"):
-		$Player/UpgradeOverlay.visible = !$Player/UpgradeOverlay.visible
 
 var player_safe: bool = false
 
@@ -35,11 +32,3 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_retry_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
-
-func _on_seed_count_pressed() -> void:
-	$Player/UpgradeOverlay.visible = !$Player/UpgradeOverlay.visible
-
-func _on_styled_button_pressed() -> void:
-	$Player/UpgradeOverlay/HBoxContainer/StyledButton.hide()
-	$Player.remove_item("Seed")
-	$Player.speed_amplifier *= 1.15
