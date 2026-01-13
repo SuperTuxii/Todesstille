@@ -1,4 +1,84 @@
-[gd_resource type="Theme" format=3 uid="uid://bh32845f688xm"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bh32845f688xm"]
+
+[sub_resource type="Gradient" id="Gradient_wvktn"]
+interpolation_mode = 1
+colors = PackedColorArray(0.7984375, 0.7984375, 0.7984375, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e1x85"]
+gradient = SubResource("Gradient_wvktn")
+width = 12
+height = 12
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.027350428, 0.25470087)
+
+[sub_resource type="Gradient" id="Gradient_cjfk0"]
+interpolation_mode = 1
+colors = PackedColorArray(0.35, 0.35, 0.35, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vj6dk"]
+gradient = SubResource("Gradient_cjfk0")
+width = 12
+height = 12
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.027350428, 0.25470087)
+
+[sub_resource type="Gradient" id="Gradient_110ce"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_05tig"]
+gradient = SubResource("Gradient_110ce")
+width = 12
+height = 12
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.027350428, 0.25470087)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rmny"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mihib"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.15, 0.15, 0.15, 0.29411766)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5, 0.5, 0.5, 0.49803922)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+anti_aliasing = false
 
 [resource]
 Button/font_sizes/font_size = 9
@@ -7,6 +87,12 @@ CheckButton/font_sizes/font_size = 9
 CodeEdit/font_sizes/font_size = 9
 ColorPickerButton/font_sizes/font_size = 9
 FoldableContainer/font_sizes/font_size = 9
+HSlider/icons/grabber = SubResource("GradientTexture2D_e1x85")
+HSlider/icons/grabber_disabled = SubResource("GradientTexture2D_vj6dk")
+HSlider/icons/grabber_highlight = SubResource("GradientTexture2D_05tig")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_1rmny")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_mihib")
+HSlider/styles/slider = SubResource("StyleBoxFlat_cjfk0")
 ItemList/font_sizes/font_size = 9
 Label/font_sizes/font_size = 9
 LineEdit/font_sizes/font_size = 9

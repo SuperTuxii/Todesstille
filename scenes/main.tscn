@@ -412,6 +412,7 @@ layout_mode = 2
 text = "Master Volume"
 
 [node name="HSlider" type="HSlider" parent="OptionsMenu/GridContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
 [connection signal="pressed" from="TitleScreen/Buttons/StartButton" to="." method="_on_start_button_pressed"]
