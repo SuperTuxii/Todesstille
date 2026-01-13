@@ -1438,7 +1438,7 @@ void fragment() {
 	COLOR *= color;
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fpun6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arp2o"]
 shader = SubResource("Shader_1epgm")
 shader_parameter/color = Color(0.5019608, 0.7607843, 0.1882353, 1)
 
@@ -1455,9 +1455,57 @@ void fragment() {
 	COLOR *= color;
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wc255"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ux5qa"]
 shader = SubResource("Shader_fpun6")
 shader_parameter/color = Color(0.066250004, 0.1, 0.025, 1)
+
+[sub_resource type="Animation" id="Animation_arp2o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Seed:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/Seed:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-141, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player/Seed:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-69, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player/DirectionalLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_wc255"]
 resource_name = "upgrade"
@@ -1506,54 +1554,6 @@ tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 2, 2),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 8, -0.125, -1.3333334, 0, 0, 8, -0.033333343, 0, 0, 0, 0, -0.049999993, 1.3333334, 0, 0),
 "times": PackedFloat32Array(1, 1.5, 1.7, 2)
-}
-
-[sub_resource type="Animation" id="Animation_arp2o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/Seed:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player/Seed:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-141, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Player/Seed:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-69, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Player/DirectionalLight2D:energy")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ux5qa"]
@@ -1660,7 +1660,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RetryButton" parent="Player/DeathOverlay" instance=ExtResource("5_8iemx")]
-material = SubResource("ShaderMaterial_fpun6")
+material = SubResource("ShaderMaterial_arp2o")
 custom_minimum_size = Vector2(45, 22)
 layout_mode = 1
 anchors_preset = -1
@@ -1705,7 +1705,7 @@ alignment = 1
 
 [node name="StyledButton" parent="Player/UpgradeOverlay/HBoxContainer" instance=ExtResource("5_8iemx")]
 visible = false
-material = SubResource("ShaderMaterial_wc255")
+material = SubResource("ShaderMaterial_ux5qa")
 custom_minimum_size = Vector2(93, 46)
 layout_mode = 2
 text = "Speed Upgrade

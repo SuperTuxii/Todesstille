@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://c23w72cpkmlnw"]
+[gd_scene load_steps=75 format=3 uid="uid://c23w72cpkmlnw"]
 
 [ext_resource type="Texture2D" uid="uid://b0g75qxacmj2f" path="res://assets/textures/title_screen_background.png" id="1_o6xl0"]
 [ext_resource type="Script" uid="uid://cnlmca4bml2y" path="res://scripts/main.gd" id="1_tipki"]
@@ -62,6 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://wcp03o1bdd7t" path="res://assets/textures/start_animation/frame0055.png" id="63_1hbcg"]
 [ext_resource type="Texture2D" uid="uid://dej8pc4iogxsd" path="res://assets/textures/start_animation/frame0056.png" id="64_m4o51"]
 [ext_resource type="Texture2D" uid="uid://cui75dl7f0jd7" path="res://assets/textures/start_animation/frame0057.png" id="65_jp61a"]
+[ext_resource type="PackedScene" uid="uid://bx5anblhdjyqk" path="res://scenes/styled_panel.tscn" id="66_1epgm"]
 [ext_resource type="Texture2D" uid="uid://4utj0i1b1hx7" path="res://assets/textures/start_animation/frame0058.png" id="66_esrwe"]
 [ext_resource type="Texture2D" uid="uid://bp3cnh710ohpu" path="res://assets/textures/start_animation/frame0059.png" id="67_4b36k"]
 [ext_resource type="Texture2D" uid="uid://b8o7f5l2h0h8s" path="res://assets/textures/start_animation/frame0060.png" id="68_1v8b0"]
@@ -76,11 +77,11 @@ void fragment() {
 	COLOR *= color;
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xhfw6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1epgm"]
 shader = SubResource("Shader_1epgm")
 shader_parameter/color = Color(0.5019608, 0.7607843, 0.1882353, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1epgm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_152kg"]
 shader = SubResource("Shader_1epgm")
 shader_parameter/color = Color(0.5019608, 0.7607843, 0.1882353, 1)
 
@@ -285,8 +286,22 @@ void fragment() {
 	COLOR *= color;
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_152kg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4e17"]
 shader = SubResource("Shader_xhfw6")
+shader_parameter/color = Color(0.5019608, 0.7607843, 0.1882353, 1)
+
+[sub_resource type="Shader" id="Shader_mlv25"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform vec4 color : source_color = vec4(1.0);
+
+void fragment() {
+	COLOR *= color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y57op"]
+shader = SubResource("Shader_mlv25")
 shader_parameter/color = Color(0.5019608, 0.7607843, 0.1882353, 1)
 
 [node name="Main" type="Control"]
@@ -340,7 +355,7 @@ grow_horizontal = 2
 alignment = 1
 
 [node name="StartButton" parent="TitleScreen/Buttons" instance=ExtResource("4_1epgm")]
-material = SubResource("ShaderMaterial_xhfw6")
+material = SubResource("ShaderMaterial_1epgm")
 custom_minimum_size = Vector2(60, 22)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -349,7 +364,7 @@ text = "START"
 minimum_size = Vector2(60, 0)
 
 [node name="OptionsButton" parent="TitleScreen/Buttons" instance=ExtResource("4_1epgm")]
-material = SubResource("ShaderMaterial_1epgm")
+material = SubResource("ShaderMaterial_152kg")
 custom_minimum_size = Vector2(60, 22)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -369,7 +384,7 @@ offset = Vector2(160, 90)
 
 [node name="SkipButton" parent="." instance=ExtResource("4_1epgm")]
 visible = false
-material = SubResource("ShaderMaterial_152kg")
+material = SubResource("ShaderMaterial_r4e17")
 custom_minimum_size = Vector2(28, 13)
 layout_mode = 1
 anchors_preset = -1
@@ -380,6 +395,24 @@ anchor_bottom = 0.925
 grow_vertical = 0
 text = "SKIP"
 margin = Vector2(4, 1)
+
+[node name="OptionsMenu" parent="." instance=ExtResource("66_1epgm")]
+material = SubResource("ShaderMaterial_y57op")
+layout_mode = 1
+margin = Vector2(15, 15)
+background_color = Color(0.25, 0.25, 0.25, 0.49019608)
+
+[node name="GridContainer" type="GridContainer" parent="OptionsMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/GridContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/GridContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="TitleScreen/Buttons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="animation_finished" from="StartAnimation" to="." method="_on_start_animation_animation_finished"]

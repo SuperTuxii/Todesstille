@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx5anblhdjyqk"]
+
+[ext_resource type="Texture2D" uid="uid://dm6lrxqh87w5q" path="res://assets/textures/box_outline.png" id="1_lkqui"]
+[ext_resource type="Script" uid="uid://bqkogqgp4ve8s" path="res://scripts/styled_panel.gd" id="2_lkqui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0oph8"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.25, 0.25, 0.25, 0.49019608)
+corner_detail = 1
+
+[sub_resource type="Shader" id="Shader_mlv25"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform vec4 color : source_color = vec4(1.0);
+
+void fragment() {
+	COLOR *= color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0oph8"]
+shader = SubResource("Shader_mlv25")
+shader_parameter/color = Color(0.5019608, 0.7607843, 0.1882353, 1)
+
+[node name="StyledPanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0oph8")
+script = ExtResource("2_lkqui")
+
+[node name="NinePathRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_0oph8")
+custom_minimum_size = Vector2(15, 10)
+layout_mode = 2
+texture = ExtResource("1_lkqui")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+metadata/_edit_horizontal_guides_ = [-38.0]
