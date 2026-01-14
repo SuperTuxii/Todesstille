@@ -1,4 +1,9 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bh32845f688xm"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bh32845f688xm"]
+
+[ext_resource type="Texture2D" uid="uid://bkphflvn5s7hc" path="res://assets/textures/check_button/checked.png" id="1_cjfk0"]
+[ext_resource type="Texture2D" uid="uid://4njcnt0so88r" path="res://assets/textures/check_button/unchecked.png" id="2_vj6dk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjfk0"]
 
 [sub_resource type="Gradient" id="Gradient_wvktn"]
 interpolation_mode = 1
@@ -84,6 +89,9 @@ anti_aliasing = false
 Button/font_sizes/font_size = 9
 CheckBox/font_sizes/font_size = 9
 CheckButton/font_sizes/font_size = 9
+CheckButton/icons/checked = ExtResource("1_cjfk0")
+CheckButton/icons/unchecked = ExtResource("2_vj6dk")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_cjfk0")
 CodeEdit/font_sizes/font_size = 9
 ColorPickerButton/font_sizes/font_size = 9
 FoldableContainer/font_sizes/font_size = 9

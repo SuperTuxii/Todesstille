@@ -7,7 +7,7 @@ func _on_start_button_pressed() -> void:
 	$StartAnimation.play()
 
 func _on_options_button_pressed() -> void:
-	pass # TODO: Add Options
+	$OptionsMenu.visible = !$OptionsMenu.visible
 
 func _on_start_animation_animation_finished() -> void:
 	get_tree().create_timer(1).timeout.connect(change_scene)
