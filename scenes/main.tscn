@@ -412,6 +412,7 @@ text = "SKIP"
 margin = Vector2(4, 1)
 
 [node name="OptionsMenu" parent="." instance=ExtResource("66_1epgm")]
+visible = false
 material = SubResource("ShaderMaterial_y57op")
 layout_mode = 1
 script = ExtResource("67_152kg")
@@ -434,46 +435,46 @@ layout_mode = 2
 theme_override_constants/v_separation = 5
 columns = 2
 
-[node name="Label" type="Label" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="MasterLabel" type="Label" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Master Volume"
 horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="MasterSlider" type="HSlider" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Label2" type="Label" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="MusicLabel" type="Label" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Music Volume"
 horizontal_alignment = 1
 
-[node name="HSlider2" type="HSlider" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="MusicSlider" type="HSlider" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Label3" type="Label" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="SFXLabel" type="Label" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SFX Volume"
 horizontal_alignment = 1
 
-[node name="HSlider3" type="HSlider" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="SFXSlider" type="HSlider" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Label4" type="Label" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="FPSLabel" type="Label" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "FPS Counter"
 horizontal_alignment = 1
 
-[node name="CheckButton" type="CheckButton" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="FPSButton" type="CheckButton" parent="OptionsMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -486,8 +487,24 @@ size_flags_vertical = 10
 text = "BACK"
 margin = Vector2(15, 5)
 
+[node name="FPSCounter" type="Label" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 12.0
+grow_horizontal = 2
+
 [connection signal="pressed" from="TitleScreen/Buttons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TitleScreen/Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="animation_finished" from="StartAnimation" to="." method="_on_start_animation_animation_finished"]
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
+[connection signal="value_changed" from="OptionsMenu/MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="OptionsMenu" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="OptionsMenu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="OptionsMenu" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="OptionsMenu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="OptionsMenu" method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="OptionsMenu/MarginContainer/VBoxContainer/GridContainer/FPSButton" to="OptionsMenu" method="_on_fps_button_toggled"]
 [connection signal="pressed" from="OptionsMenu/MarginContainer/VBoxContainer/BackButton" to="OptionsMenu" method="_on_back_button_pressed"]
